@@ -1,0 +1,64 @@
+graph LR
+    %% Main Node
+    Home((Raven Pulse Sentinel Home))
+
+    %% Top Branch - Hardware
+    Home --- Hardware[Hardware]
+    
+    Hardware --- Pod[Sentinel Pod]
+    Pod --- Pod1[Charging system]
+    Pod --- Pod2[LED status]
+    Pod --- Pod3[Speaker]
+    Pod --- Pod4[Mic]
+    Pod --- Pod5[ESP]
+    Pod --- Pod6[Battery]
+
+    Hardware --- Console[Sentinel Console]
+    Console --- Con1[Touchscreen]
+    Console --- Con2[Battery]
+    Console --- Con3[CM4 RPi]
+    Console --- Con4[Charging]
+    Console --- Con5[ESP]
+
+    Hardware --- Cam[Sentinel Cam]
+    Cam --- Base[Base Model]
+    Base --- B1[Charging]
+    Base --- B2[ESP]
+    Base --- B3[ESP Cam]
+    
+    Cam --- Swivel[Swivel Model]
+    Swivel --- S1[Charging]
+    Swivel --- S2[Battery]
+    Swivel --- S3[Raspberry Pi 02W]
+    Swivel --- S4[RPi Cam Noir]
+    Swivel --- S5[Stepper Motor]
+    Swivel --- S6[IR LED Array]
+
+    Hardware --- Hub[Sentinel Hub]
+    Hub --- H1[Raspberry Pi 5]
+    Hub --- H2[RPi 5 M.2 Drive Hat]
+    Hub --- H3[SSD NVMe]
+    Hub --- H4[RPi 5 Active Cooler]
+    Hub --- H5[Custom Case]
+    Hub --- H6[Battery]
+
+    Hardware --- Guard[Sentinel Guard]
+
+    %% Bottom Branch - Software
+    Home --- Software[Software]
+    
+    Software --- PWA[PWA]
+    Software --- Rust[Rust Backend for Hub]
+    Software --- Link[Back & Frontend for Link]
+    Software --- Keys[Guard Keys]
+
+    %% Styling for Beauty & Padding
+    style Home fill:#ff4444,stroke:#fff,stroke-width:4px,color:#fff
+    style Hardware fill:#2a2a2a,stroke:#ff4444,stroke-width:2px,color:#fff
+    style Software fill:#2a2a2a,stroke:#4444ff,stroke-width:2px,color:#fff
+    
+    classDef hardwareNode fill:#1a1a1a,stroke:#888,stroke-dasharray: 5 5,color:#ccc;
+    class Pod,Console,Cam,Hub,Guard hardwareNode;
+    
+    classDef softwareNode fill:#1a1a1a,stroke:#4444ff,color:#ccc;
+    class PWA,Rust,Link,Keys softwareNode;
